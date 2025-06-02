@@ -6,6 +6,12 @@ import { ModeToggle } from "./mode-toggle";
 import { Button } from "./ui/button";
 import { ActiveLink } from "./active-link";
 
+// Estrutura de dados para navegação
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/blog", label: "Blog" },
+];
+
 export const Header = () => {
   return (
     <div className="fixed top-0 z-50 bg-background/95 backdrop-blur border-b border-white/10 supports-[backdrop-filter]:background/60">
@@ -22,16 +28,13 @@ export const Header = () => {
           </ActiveLink>
         </div>
         <div className="flex items-center gap-2">
-          <ActiveLink href="/">
-            <span className="text-sm font-medium transition-colors hover:text-primary">
-              Home
-            </span>
-          </ActiveLink>
-          <ActiveLink href="/blog">
-            <span className="text-sm font-medium transition-colors hover:text-primary">
-              Blog
-            </span>
-          </ActiveLink>
+          {navItems.map((item) => (
+            <ActiveLink key={item.href} href={item.href}>
+              <span className="text-sm font-medium transition-colors">
+                {item.label}
+              </span>
+            </ActiveLink>
+          ))}
           <Button variant={"secondary"}>
             <span>Começar</span>
           </Button>

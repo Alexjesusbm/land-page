@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+
 
 export const metadata: Metadata = {
   title: "Land Page",
@@ -16,7 +19,9 @@ export default function RootLayout({
     <html lang="pt-br" suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <Header />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
