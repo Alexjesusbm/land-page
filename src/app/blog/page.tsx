@@ -3,20 +3,23 @@ import Link from "next/link";
 import { getAllPosts } from "@/lib/md-utils";
 import { formatDate } from "@/lib/utils";
 import { Header } from "@/components/header";
+import { BaseSearch } from "@/components/search";
 
 export default async function BlogPage() {
   const posts = await getAllPosts();
 
   return (
-    <div>
+    <div className="min-h-screen bg-black text-white">
       <Header />
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold mb-8 text-foreground">Blog</h1>
-
+        <div className="w-[50%] mx-auto">
+          <BaseSearch />
+        </div>
+        <h1 className="text-4xl font-bold mb-8 text-white">Blog</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
-              <article className="h-full flex flex-col bg-card rounded-lg overflow-hidden border border-border transition-colors hover:border-primary">
+              <article className="h-full flex flex-col rounded-lg overflow-hidden border border-neutral-800 transition-colors shadow-lg bg-neutral-900">
                 <div className="relative aspect-[16/9]">
                   <Image
                     src={post.image}
@@ -28,13 +31,13 @@ export default async function BlogPage() {
                 </div>
 
                 <div className="flex-1 p-6">
-                  <time className="text-sm text-muted-foreground mb-2 block">
+                  <time className="text-sm mb-2 block text-gray-300">
                     {formatDate(post.date)}
                   </time>
-                  <h2 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                  <h2 className="text-xl font-semibold mb-3 group-hover:text-gray-300 transition-colors text-white">
                     {post.title}
                   </h2>
-                  <p className="text-muted-foreground line-clamp-2">
+                  <p className="line-clamp-2 text-gray-300">
                     {post.description}
                   </p>
                 </div>

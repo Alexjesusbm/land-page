@@ -18,10 +18,10 @@ export default function RootLayout({
 
   return (
     <html lang="pt-br" suppressHydrationWarning>
-      <body>
+      <body className="flex flex-col min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
-          <main className="pt-20 pb-4">{children}</main>
+          <main className="flex-1 pt-16 pb-4">{children}</main>
           <Footer />
           <ChatAssistantButton onClick={() => setChatOpen(true)} />
           <ChatAssistantWindow open={chatOpen} onClose={() => setChatOpen(false)} />

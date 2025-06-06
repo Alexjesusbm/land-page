@@ -1,5 +1,4 @@
 import { FeatureSection } from "@/components/feature-section";
-import { HeroSection } from "@/components/hero-section";
 import { getAllPosts } from "@/lib/md-utils";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,10 +8,9 @@ export default async function Home() {
   const recentPosts = (await getAllPosts()).slice(0, 3);
 
   return (
-    <div className="flex flex-col gap-4 px-1 min-h-screen bg-neutral-900 text-foreground">
-      <HeroSection />
+    <div className="flex flex-col gap-4 px-1 bg-black text-white">
       <FeatureSection />
-      <div className="flex flex-col items-center justify-center gap-4 bg-blue-950/90 rounded-xl shadow-lg p-6 border border-blue-900">
+      <div className="flex flex-col items-center justify-center gap-4 bg-neutral-900 rounded-xl shadow-lg p-6 border border-neutral-800">
         <h1 className="text-3xl font-bold text-center">
           Sua loja de afiliados, simples, do jeito que deveria ser
         </h1>
@@ -21,8 +19,8 @@ export default async function Home() {
         </p>
       </div>
       <section className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto bg-blue-950/95 rounded-xl shadow p-8 border border-blue-900">
-          <h2 className="text-3xl font-bold mb-8 text-foreground">
+        <div className="max-w-4xl mx-auto bg-neutral-900 rounded-xl shadow p-8 border border-neutral-800">
+          <h2 className="text-3xl font-bold mb-8 text-white">
             Posts Recentes
           </h2>
           <div className="space-y-6">
@@ -32,8 +30,8 @@ export default async function Home() {
                 href={`/blog/${post.slug}`}
                 className="block group"
               >
-                <article className="flex gap-6 items-start bg-neutral-900/80 rounded-lg p-4 hover:shadow-lg transition border border-blue-900">
-                  <div className="relative aspect-[16/9] w-48 rounded-lg overflow-hidden shrink-0 bg-muted">
+                <article className="flex gap-6 items-start bg-neutral-800 rounded-lg p-4 hover:shadow-lg transition border border-neutral-700">
+                  <div className="relative aspect-[16/9] w-48 rounded-lg overflow-hidden shrink-0 bg-neutral-700">
                     <Image
                       src={post.image}
                       alt={post.title}
@@ -43,13 +41,13 @@ export default async function Home() {
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <time className="text-sm text-muted-foreground mb-2 block">
+                    <time className="text-sm mb-2 block text-gray-300">
                       {formatDate(post.date)}
                     </time>
-                    <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-gray-300 transition-colors">
                       {post.title}
                     </h3>
-                    <p className="text-muted-foreground line-clamp-2">
+                    <p className="text-gray-300 line-clamp-2">
                       {post.description}
                     </p>
                   </div>
@@ -59,9 +57,9 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <div className="flex flex-col items-center justify-center gap-4 bg-blue-950/90 rounded-xl shadow p-6 border border-blue-900">
+      <div className="flex flex-col items-center justify-center gap-4 bg-neutral-900 rounded-xl shadow p-6 border border-neutral-800">
         <h2 className="text-2xl font-semibold">Recursos</h2>
-        <ul className="list-disc list-inside text-blue-200">
+        <ul className="list-disc list-inside text-gray-300">
           <li>Fácil de usar</li>
           <li>Integração com as principais plataformas de afiliados</li>
           <li>Suporte dedicado</li>
