@@ -1,29 +1,9 @@
 "use client";
 
-import React from "react";
-import { Input } from "./ui/input";
+import React from 'react'
 
-interface BaseSearchProps {
-  query: string;
-  setQuery: (value: string) => void;
-}
-
-export const BaseSearch = ({ query, setQuery }: BaseSearchProps) => {
-  const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
-  };
-
+export const BaseSearch = () => {
   return (
-    <form className="relative w-full max-w-xs">
-      <Input
-        type="text"
-        placeholder="Search..."
-        value={query}
-        onChange={handleQueryChange}
-        className="w-full pl-10"
-        autoFocus
-        autoComplete="off"
-      />
-    </form>
-  );
-};
+    <div>BaseSearch</div>
+  )
+}
